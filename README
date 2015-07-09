@@ -1,96 +1,19 @@
+Short Description
 LibMAX7221 is a C library for AVR 8-bit microcontrollers for 7Seg display driven by MAX7221.
 
 
-Supported MCU Hardware
+Supported MCU Hardware and 7Seg Display modules
 
 The library is compatible with every 8-bit AVR microcontroller which has SPI that supports standard SPI master
 mode with 4 wires for SPI physical bus.
 
 It supports only a single raw 7Seg Display with maximum 8 7Seg LEDs driven by a single MAX7221.
 
+Check the doc folder for detailed describtion of the library.
 
-Library Description
-
-MAX7221 7SegDisplay is represented by a structure defined as:
-
-typedef struct S7SegDisplay 
-{
-	uint8_t display[MAXDisplayLength+1];		//display buffer
-	uint8_t displayLen;				//7SEG Display length
-	volatile uint8_t *CS_PORT;			//AVR MCP Port used to drive the /SS pin of MAX7221
-	uint8_t CS_PIN;					//AVR MCU pin from CS_PORT assigned as /SS for MAX7221
-} T7SegDisplay;
-
-
-The following functions are included in the library:
-
- - void MAX7221_initDisplay(T7SegDisplay *pDisplay,uint8_t length,volatile uint8_t *CS_PORT,uint8_t CS_PIN);
-	The function is used to initilaze the MAX7221 driver by configuring all of the relevant MAX7221 parameters. 
-
-The library provide functions to control the content of every 7Seg LED which is part of the display separately: 
-
- - void MAX7221_setDigit(T7SegDisplay *pDisplay,uint8_t digit,uint8_t value);
-	Set the value of the n-th digit in the display buffer defined in T7SegDispaly structure.
-
- - void MAX7221_refreshDigit(T7SegDisplay *pDisplay,uint8_t digit)
-	Refresh the content of the n-th 7Seg LED using the value from the display buffer.
-
-Other functions:
-
- - void MAX7221_refreshDisplay(T7SegDisplay *pDisplay);
-	Refresh the displayed values with the one from the dispaly buffer.
-
- - void MAX7221_clearDisplay(T7SegDisplay *pDisplay)
-	Blank the 7Seg Display.
-
- - void MAX7221_shutdownDisplay(T7SegDisplay *pDisplay);
-	Put MAX7221 in Shutdown mode.
-
- - void MAX7221_wakeUpDisplay(T7SegDisplay *pDisplay);
-	Resume to normal mode of operation after entering in shutdown mode;
- 	
- - void MAX7221_showIntNumber(T7SegDisplay *pDisplay,int32_t number);
-	Show integer value on the 7Seg display.
-
-
-
-Usage
-
-First the SPI module of the AVR microcontroller must be configured as standard SPI master with 4 wire SPI bus.
-Because the different AVR MCU have different PINs assigned to the SPI module, its initialization must be performed additionally
-and it is not done by this library.
-
-For example, in case of Atmega328:
-
-void SPI_Master_Init()
-{
-	/* Set MOSI, SCK as output pins
-	  /SS pin will be set as output by the MAX7221_init function
-	*/
-	DDRB = (1<<PORTB3)|(1<<PORTB5);
-	
-	/*Set SPI parameters via SPCR:
-		- frequency f/16;
-		- Define the microcontroller as SPI Master;
-		- MSB is transmitted first;
-		- SCK is low when idle;
-		- SPI is enable.
-	*/
-	SPCR = (1 << MSTR) | (1 << SPE) | (1 << SPR0);
-}
-
-Next step is to initialize the connected 7Seg display using the MAX7221_initDisplay function. 
-For example, if the /SS pin of MAX7221 is connected to the PB2 PIN of the MCU, the init
-function arguments are:
-
-MAX7221_initDisplay(p7SegDisplay,5,&PORTB,PORTB2);
-
-After the SPI and MAX7221 initialization the display can be controlled using the rest of the functions 
-in the library as presented in the example distributed with the library.
-
+Tested on Atmel Atmega328 MCU.
 
 WARNING: 
 The source is provided as it is without any warranty. Use it on your own risk!
 The author does not take any responsibility for the damage caused while using this software.
 
-Tested on Atmel Atmega328 MCU.
