@@ -10,6 +10,14 @@
  *
  */ 
 
+
+/** @file MAX7221.c
+ *  @brief Implements the functions defined in the header file.
+ *
+ *  @author Goce Boshkovski
+ *  @date 10-Jun-15
+ *  @copyright GNU General Public License v2.
+ */
 #include <avr/io.h>
 #include "MAX7221.h"
 

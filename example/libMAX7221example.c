@@ -8,9 +8,9 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License.
  *
- * Example of using MAX7221 library on Atmega328 for  
+ * Example of using MAX7221 library on Atmega328 for
  * one raw 7Seg display with MAX7221 driver.
- */ 
+ */
 
 #include <avr/io.h>
 #include "MAX7221.h"
@@ -22,13 +22,13 @@ int main(void)
 	T7SegDisplay SevenSegDisplay;
 	T7SegDisplay *p7SegDisplay = &SevenSegDisplay;
 
-    // Init the SPI hardware as ...
+	// Init the SPI hardware as ...
 	SPI_Master_Init();
-		
+	
 	// Init of one raw 7Seg Display driven by MAX7221
 	MAX7221_initDisplay(p7SegDisplay,5,&PORTB,PORTB2);
 	
-	/* Example for setting display values per digit 
+	/* Example for setting display values per digit
 	
 	MAX7221_refreshDisplay(p7SegDisplay);
 	MAX7221_setDigit(p7SegDisplay,DIGIT5,CHAR_MINUS);
@@ -40,12 +40,13 @@ int main(void)
 	MAX7221_setDigit(p7SegDisplay,DIGIT2,1);
 	MAX7221_refreshDigit(p7SegDisplay,DIGIT2);
 	MAX7221_setDigit(p7SegDisplay,DIGIT1,5);
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT1);*/
+	MAX7221_refreshDigit(p7SegDisplay,DIGIT1);
+	*/
 	
-	//Example for showing Int Number	
+	//Example for showing Int Number
 	MAX7221_showIntNumber(p7SegDisplay,-7169);
-		
-    while(1);
+	
+	while(1);
 	
 	return 0;
 }
