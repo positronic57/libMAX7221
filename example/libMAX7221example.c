@@ -10,6 +10,8 @@
  *
  * Example of using MAX7221 library on Atmega328 for
  * one raw 7Seg display with MAX7221 driver.
+ * 
+ * PIN5 from PORTB is connected to the /SS pin of MAX7221.
  */
 
 #include <avr/io.h>
@@ -22,28 +24,13 @@ int main(void)
 	T7SegDisplay SevenSegDisplay;
 	T7SegDisplay *p7SegDisplay = &SevenSegDisplay;
 
-	// Init the SPI hardware as ...
+	// Init SPI hardware as master.
 	SPI_Master_Init();
 	
-	// Init of one raw 7Seg Display driven by MAX7221
+	// Init one raw 7Seg Display driven by MAX7221
 	MAX7221_initDisplay(p7SegDisplay,5,&PORTB,PORTB2);
 	
-	/* Example for setting display values per digit
-	
-	MAX7221_refreshDisplay(p7SegDisplay);
-	MAX7221_setDigit(p7SegDisplay,DIGIT5,CHAR_MINUS);
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT5);
-	MAX7221_setDigit(p7SegDisplay,DIGIT4,8);
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT4);
-	MAX7221_setDigit(p7SegDisplay,DIGIT3,(0x02|DECIMAL_POINT));
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT3);
-	MAX7221_setDigit(p7SegDisplay,DIGIT2,1);
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT2);
-	MAX7221_setDigit(p7SegDisplay,DIGIT1,5);
-	MAX7221_refreshDigit(p7SegDisplay,DIGIT1);
-	*/
-	
-	//Example for showing Int Number
+	//Example for showing integer number
 	MAX7221_showIntNumber(p7SegDisplay,-7169);
 	
 	while(1);
