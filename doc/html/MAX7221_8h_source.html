@@ -18,7 +18,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">MAX7221 library
-   &#160;<span id="projectnumber">v1.0</span>
+   &#160;<span id="projectnumber">v1.1</span>
    </div>
    <div id="projectbrief">MAX7221 library in C for AVR 8-bit microcontrollers</div>
   </td>
@@ -107,61 +107,70 @@
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="group__chars.html#ga5aebfba92373e0dc8a76d272bcd8e85d">   74</a></span>&#160;<span class="preprocessor">#define BLANK 0x0F</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/* @} */</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">   81</a></span>&#160;<span class="preprocessor">#define MAXDisplayLength 0x08</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/* @{ */</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="group__libMacros.html#gaab2498547a951aa0f74ff85a32b098fd">   90</a></span>&#160;<span class="preprocessor">#define MAX7221_wakeUpDisplay(pDisplay) SendData2MAX7221(pDisplay,MODE_REG,NORMAL_OPERATION_MODE)</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="group__libMacros.html#ga553fead52554236e69edd69cdb632a18">   95</a></span>&#160;<span class="preprocessor">#define MAX7221_shutdownDisplay(pDisplay) SendData2MAX7221(pDisplay,MODE_REG,SHUTDOWN_MODE)</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/* @} */</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html">  101</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structS7SegDisplay.html">S7SegDisplay</a> </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">  103</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">display</a>[<a class="code" href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">MAXDisplayLength</a>+1]; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">  104</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">displayLen</a>; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">  105</a></span>&#160;    <span class="keyword">volatile</span> uint8_t *<a class="code" href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">CS_PORT</a>; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">  106</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">CS_PIN</a>; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;} <a class="code" href="MAX7221_8h.html#a9f57577c85fd51d803365aa98cc075d2">T7SegDisplay</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/* @{ */</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga4fb08485c21fb135c00ea908c44af9af">MAX7221_initDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t length,<span class="keyword">volatile</span> uint8_t *CS_PORT,uint8_t CS_PIN);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t address,uint8_t value);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gafc77d5f184229955ff4337c1c0446e2c">MAX7221_setDigit</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t digit,uint8_t value);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga05b20f754480ad1058aa9aa1f5b4d996">MAX7221_refreshDigit</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t digit);</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gad47428dfa7c62f5b1df2121c15b40001">MAX7221_refreshDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga8322dd0941e8f26540885f14fc732b37">MAX7221_clearDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay);</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga7334d53b1b7b563b027863316dd3d05b">MAX7221_showIntNumber</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,int32_t number);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga32668b8667266856ba3a55799f9d9dd3">SPI_DataSend</a>(uint8_t value);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">/* @} */</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MAX7221_H_ */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="ttc" id="structS7SegDisplay_html_ade7b20800a2e06369da8e4748bd1bb55"><div class="ttname"><a href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">S7SegDisplay::CS_PIN</a></div><div class="ttdeci">uint8_t CS_PIN</div><div class="ttdef"><b>Definition:</b> MAX7221.h:106</div></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">/* @{ */</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="group__brightness.html#gac25189db92959bff3c6c2adf4c34b50a">   79</a></span>&#160;<span class="preprocessor">#define DIM 0x02    // 3/16 of the Iset</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="group__brightness.html#gac7ebe8a74067308019e81190ede166e9">   80</a></span>&#160;<span class="preprocessor">#define BRIGHT 0x07 // 8/16 of the Iset</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="group__brightness.html#ga2134a5a06f0865c945543a1f07eba387">   81</a></span>&#160;<span class="preprocessor">#define MAX_BRIGHTNESS 0x0F // 15/16 of the Iset </span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">   88</a></span>&#160;<span class="preprocessor">#define MAXDisplayLength 0x08</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">/* @{ */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="group__libMacros.html#gaab2498547a951aa0f74ff85a32b098fd">   97</a></span>&#160;<span class="preprocessor">#define MAX7221_wakeUpDisplay(pDisplay) SendData2MAX7221(pDisplay,MODE_REG,NORMAL_OPERATION_MODE)</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="group__libMacros.html#ga553fead52554236e69edd69cdb632a18">  102</a></span>&#160;<span class="preprocessor">#define MAX7221_shutdownDisplay(pDisplay) SendData2MAX7221(pDisplay,MODE_REG,SHUTDOWN_MODE)</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="MAX7221_8h.html#a9b181a5e524ea30985bc79da34b035eb">  111</a></span>&#160;<span class="preprocessor">#define MAX7221_SetDispalyIntensity(pDisplay,level) SendData2MAX7221(pDisplay,INTENSITY_REG,level)</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html">  117</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structS7SegDisplay.html">S7SegDisplay</a> </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">  119</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">display</a>[<a class="code" href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">MAXDisplayLength</a>+1]; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">  120</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">displayLen</a>; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">  121</a></span>&#160;    <span class="keyword">volatile</span> uint8_t *<a class="code" href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">CS_PORT</a>; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">  122</a></span>&#160;    uint8_t <a class="code" href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">CS_PIN</a>; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;} <a class="code" href="MAX7221_8h.html#a9f57577c85fd51d803365aa98cc075d2">T7SegDisplay</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">/* @{ */</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga4fb08485c21fb135c00ea908c44af9af">MAX7221_initDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t length,<span class="keyword">volatile</span> uint8_t *CS_PORT,uint8_t CS_PIN);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t address,uint8_t value);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gafc77d5f184229955ff4337c1c0446e2c">MAX7221_setDigit</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t digit,uint8_t value);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga05b20f754480ad1058aa9aa1f5b4d996">MAX7221_refreshDigit</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,uint8_t digit);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#gad47428dfa7c62f5b1df2121c15b40001">MAX7221_refreshDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga8322dd0941e8f26540885f14fc732b37">MAX7221_clearDisplay</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga7334d53b1b7b563b027863316dd3d05b">MAX7221_showIntNumber</a>(<a class="code" href="structS7SegDisplay.html">T7SegDisplay</a> *pDisplay,int32_t number);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__libFunctions.html#ga32668b8667266856ba3a55799f9d9dd3">SPI_DataSend</a>(uint8_t value);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">/* @} */</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MAX7221_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="ttc" id="structS7SegDisplay_html_ade7b20800a2e06369da8e4748bd1bb55"><div class="ttname"><a href="structS7SegDisplay.html#ade7b20800a2e06369da8e4748bd1bb55">S7SegDisplay::CS_PIN</a></div><div class="ttdeci">uint8_t CS_PIN</div><div class="ttdef"><b>Definition:</b> MAX7221.h:122</div></div>
 <div class="ttc" id="group__libFunctions_html_gad47428dfa7c62f5b1df2121c15b40001"><div class="ttname"><a href="group__libFunctions.html#gad47428dfa7c62f5b1df2121c15b40001">MAX7221_refreshDisplay</a></div><div class="ttdeci">void MAX7221_refreshDisplay(T7SegDisplay *pDisplay)</div><div class="ttdoc">Diplays the content of the buffer on the displays. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:80</div></div>
 <div class="ttc" id="group__libFunctions_html_ga32668b8667266856ba3a55799f9d9dd3"><div class="ttname"><a href="group__libFunctions.html#ga32668b8667266856ba3a55799f9d9dd3">SPI_DataSend</a></div><div class="ttdeci">void SPI_DataSend(uint8_t value)</div><div class="ttdoc">Sends data to MAX7221 via SPI. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:142</div></div>
-<div class="ttc" id="structS7SegDisplay_html_a0da52380e34fb2f21b177aefdc21c86c"><div class="ttname"><a href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">S7SegDisplay::CS_PORT</a></div><div class="ttdeci">volatile uint8_t * CS_PORT</div><div class="ttdef"><b>Definition:</b> MAX7221.h:105</div></div>
-<div class="ttc" id="MAX7221_8h_html_a27f3bfb752f817814dbfc50cf45914b8"><div class="ttname"><a href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">MAXDisplayLength</a></div><div class="ttdeci">#define MAXDisplayLength</div><div class="ttdoc">Defines the maximum length of the display expressed as number of 7seg LEDs. </div><div class="ttdef"><b>Definition:</b> MAX7221.h:81</div></div>
+<div class="ttc" id="structS7SegDisplay_html_a0da52380e34fb2f21b177aefdc21c86c"><div class="ttname"><a href="structS7SegDisplay.html#a0da52380e34fb2f21b177aefdc21c86c">S7SegDisplay::CS_PORT</a></div><div class="ttdeci">volatile uint8_t * CS_PORT</div><div class="ttdef"><b>Definition:</b> MAX7221.h:121</div></div>
+<div class="ttc" id="MAX7221_8h_html_a27f3bfb752f817814dbfc50cf45914b8"><div class="ttname"><a href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">MAXDisplayLength</a></div><div class="ttdeci">#define MAXDisplayLength</div><div class="ttdoc">Defines the maximum length of the display expressed as number of 7seg LEDs. </div><div class="ttdef"><b>Definition:</b> MAX7221.h:88</div></div>
 <div class="ttc" id="group__libFunctions_html_ga8322dd0941e8f26540885f14fc732b37"><div class="ttname"><a href="group__libFunctions.html#ga8322dd0941e8f26540885f14fc732b37">MAX7221_clearDisplay</a></div><div class="ttdeci">void MAX7221_clearDisplay(T7SegDisplay *pDisplay)</div><div class="ttdoc">Blanks the 7Seg Display. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:89</div></div>
 <div class="ttc" id="group__libFunctions_html_ga05b20f754480ad1058aa9aa1f5b4d996"><div class="ttname"><a href="group__libFunctions.html#ga05b20f754480ad1058aa9aa1f5b4d996">MAX7221_refreshDigit</a></div><div class="ttdeci">void MAX7221_refreshDigit(T7SegDisplay *pDisplay, uint8_t digit)</div><div class="ttdoc">Refreshes the content of the n-th 7Seg LED using the coresponding value from the display buffer...</div><div class="ttdef"><b>Definition:</b> MAX7221.c:74</div></div>
-<div class="ttc" id="structS7SegDisplay_html"><div class="ttname"><a href="structS7SegDisplay.html">S7SegDisplay</a></div><div class="ttdoc">MAX7221 7SegDisplay is represented by this structure. </div><div class="ttdef"><b>Definition:</b> MAX7221.h:101</div></div>
+<div class="ttc" id="structS7SegDisplay_html"><div class="ttname"><a href="structS7SegDisplay.html">S7SegDisplay</a></div><div class="ttdoc">MAX7221 7SegDisplay is represented by this structure. </div><div class="ttdef"><b>Definition:</b> MAX7221.h:117</div></div>
 <div class="ttc" id="group__libFunctions_html_gafc77d5f184229955ff4337c1c0446e2c"><div class="ttname"><a href="group__libFunctions.html#gafc77d5f184229955ff4337c1c0446e2c">MAX7221_setDigit</a></div><div class="ttdeci">void MAX7221_setDigit(T7SegDisplay *pDisplay, uint8_t digit, uint8_t value)</div><div class="ttdoc">Sets the value of the n-th digit in the display buffer defined in 7SegDispaly structure. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:67</div></div>
 <div class="ttc" id="group__libFunctions_html_gab0f8378954ae761e8bf3c2f3040a7d74"><div class="ttname"><a href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a></div><div class="ttdeci">void SendData2MAX7221(T7SegDisplay *pDisplay, uint8_t address, uint8_t value)</div><div class="ttdoc">Updates the content of a specific MAX7221 register. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:52</div></div>
 <div class="ttc" id="MAX7221_8h_html_a9f57577c85fd51d803365aa98cc075d2"><div class="ttname"><a href="MAX7221_8h.html#a9f57577c85fd51d803365aa98cc075d2">T7SegDisplay</a></div><div class="ttdeci">struct S7SegDisplay T7SegDisplay</div><div class="ttdoc">MAX7221 7SegDisplay is represented by this structure. </div></div>
-<div class="ttc" id="structS7SegDisplay_html_a8dd8ff6028e69169a97a8391e8e2c73d"><div class="ttname"><a href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">S7SegDisplay::display</a></div><div class="ttdeci">uint8_t display[MAXDisplayLength+1]</div><div class="ttdef"><b>Definition:</b> MAX7221.h:103</div></div>
+<div class="ttc" id="structS7SegDisplay_html_a8dd8ff6028e69169a97a8391e8e2c73d"><div class="ttname"><a href="structS7SegDisplay.html#a8dd8ff6028e69169a97a8391e8e2c73d">S7SegDisplay::display</a></div><div class="ttdeci">uint8_t display[MAXDisplayLength+1]</div><div class="ttdef"><b>Definition:</b> MAX7221.h:119</div></div>
 <div class="ttc" id="group__libFunctions_html_ga7334d53b1b7b563b027863316dd3d05b"><div class="ttname"><a href="group__libFunctions.html#ga7334d53b1b7b563b027863316dd3d05b">MAX7221_showIntNumber</a></div><div class="ttdeci">void MAX7221_showIntNumber(T7SegDisplay *pDisplay, int32_t number)</div><div class="ttdoc">Displays integer value on the display. </div><div class="ttdef"><b>Definition:</b> MAX7221.c:112</div></div>
-<div class="ttc" id="structS7SegDisplay_html_adc41e694cba94e6624b8ca4cc10113f5"><div class="ttname"><a href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">S7SegDisplay::displayLen</a></div><div class="ttdeci">uint8_t displayLen</div><div class="ttdef"><b>Definition:</b> MAX7221.h:104</div></div>
+<div class="ttc" id="structS7SegDisplay_html_adc41e694cba94e6624b8ca4cc10113f5"><div class="ttname"><a href="structS7SegDisplay.html#adc41e694cba94e6624b8ca4cc10113f5">S7SegDisplay::displayLen</a></div><div class="ttdeci">uint8_t displayLen</div><div class="ttdef"><b>Definition:</b> MAX7221.h:120</div></div>
 <div class="ttc" id="group__libFunctions_html_ga4fb08485c21fb135c00ea908c44af9af"><div class="ttname"><a href="group__libFunctions.html#ga4fb08485c21fb135c00ea908c44af9af">MAX7221_initDisplay</a></div><div class="ttdeci">void MAX7221_initDisplay(T7SegDisplay *pDisplay, uint8_t length, volatile uint8_t *CS_PORT, uint8_t CS_PIN)</div><div class="ttdoc">The function is used to initilaze the MAX7221 driver by configuring all of the relevant MAX7221 param...</div><div class="ttdef"><b>Definition:</b> MAX7221.c:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 1 2015 22:33:09 for MAX7221 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 11 2015 22:56:46 for MAX7221 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

@@ -74,6 +74,13 @@
 #define BLANK 0x0F
 /* @} */
 
+/** \defgroup brightness Values for digital control of display brightness */
+/* @{ */
+#define DIM 0x02	// 3/16 of the Iset
+#define BRIGHT 0x07	// 8/16 of the Iset
+#define MAX_BRIGHTNESS 0x0F	// 15/16 of the Iset 
+/* @} */
+
 /**
  * @brief Defines the maximum length of the display expressed as number of 7seg LEDs.
  * 
@@ -93,6 +100,15 @@
  * where pDisplay is a pointer to the structure that represents the display.
  */
 #define MAX7221_shutdownDisplay(pDisplay) SendData2MAX7221(pDisplay,MODE_REG,SHUTDOWN_MODE)
+/* @} */
+
+/**
+ * @brief Digital control of display brightness.
+ * Sets display intensity/brightness.
+ * where pDisplay pointer to the structure that represents the display
+ * and level is the brightness level.
+ */
+#define MAX7221_SetDispalyIntensity(pDisplay,level) SendData2MAX7221(pDisplay,INTENSITY_REG,level)
 /* @} */
 
 /**

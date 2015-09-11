@@ -18,7 +18,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">MAX7221 library
-   &#160;<span id="projectnumber">v1.0</span>
+   &#160;<span id="projectnumber">v1.1</span>
    </div>
    <div id="projectbrief">MAX7221 library in C for AVR 8-bit microcontrollers</div>
   </td>
@@ -120,6 +120,12 @@ Macros</h2></td></tr>
 <tr class="separator:gada878a8b4864a1658ee0f0acd5a89412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5aebfba92373e0dc8a76d272bcd8e85d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__chars.html#ga5aebfba92373e0dc8a76d272bcd8e85d">BLANK</a>&#160;&#160;&#160;0x0F</td></tr>
 <tr class="separator:ga5aebfba92373e0dc8a76d272bcd8e85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac25189db92959bff3c6c2adf4c34b50a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__brightness.html#gac25189db92959bff3c6c2adf4c34b50a">DIM</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:gac25189db92959bff3c6c2adf4c34b50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac7ebe8a74067308019e81190ede166e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__brightness.html#gac7ebe8a74067308019e81190ede166e9">BRIGHT</a>&#160;&#160;&#160;0x07</td></tr>
+<tr class="separator:gac7ebe8a74067308019e81190ede166e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2134a5a06f0865c945543a1f07eba387"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__brightness.html#ga2134a5a06f0865c945543a1f07eba387">MAX_BRIGHTNESS</a>&#160;&#160;&#160;0x0F</td></tr>
+<tr class="separator:ga2134a5a06f0865c945543a1f07eba387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27f3bfb752f817814dbfc50cf45914b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MAX7221_8h.html#a27f3bfb752f817814dbfc50cf45914b8">MAXDisplayLength</a>&#160;&#160;&#160;0x08</td></tr>
 <tr class="memdesc:a27f3bfb752f817814dbfc50cf45914b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the maximum length of the display expressed as number of 7seg LEDs.  <a href="#a27f3bfb752f817814dbfc50cf45914b8">More...</a><br /></td></tr>
 <tr class="separator:a27f3bfb752f817814dbfc50cf45914b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +135,9 @@ Macros</h2></td></tr>
 <tr class="memitem:ga553fead52554236e69edd69cdb632a18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__libMacros.html#ga553fead52554236e69edd69cdb632a18">MAX7221_shutdownDisplay</a>(pDisplay)&#160;&#160;&#160;<a class="el" href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a>(pDisplay,<a class="el" href="group__regCont.html#gaec9fb68e3b58181f4b5f6b2a8c4aba78">MODE_REG</a>,<a class="el" href="group__ops.html#ga3a5c84d06caee73dd07d9eab0cc07a12">SHUTDOWN_MODE</a>)</td></tr>
 <tr class="memdesc:ga553fead52554236e69edd69cdb632a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts the 7Seg display in shutdown mode where pDisplay is a pointer to the structure that represents the display.  <a href="group__libMacros.html#ga553fead52554236e69edd69cdb632a18">More...</a><br /></td></tr>
 <tr class="separator:ga553fead52554236e69edd69cdb632a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b181a5e524ea30985bc79da34b035eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MAX7221_8h.html#a9b181a5e524ea30985bc79da34b035eb">MAX7221_SetDispalyIntensity</a>(pDisplay, level)&#160;&#160;&#160;<a class="el" href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a>(pDisplay,<a class="el" href="group__regCont.html#ga7e954b8a70839bc7934e4c143b06a838">INTENSITY_REG</a>,level)</td></tr>
+<tr class="memdesc:a9b181a5e524ea30985bc79da34b035eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital control of display brightness. Sets display intensity/brightness. where pDisplay pointer to the structure that represents the display and level is the brightness level.  <a href="#a9b181a5e524ea30985bc79da34b035eb">More...</a><br /></td></tr>
+<tr class="separator:a9b181a5e524ea30985bc79da34b035eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -169,6 +178,34 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>10-Jun-15 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU General Public License v2. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a9b181a5e524ea30985bc79da34b035eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX7221_SetDispalyIntensity</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">pDisplay, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">level&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="group__libFunctions.html#gab0f8378954ae761e8bf3c2f3040a7d74">SendData2MAX7221</a>(pDisplay,<a class="el" href="group__regCont.html#ga7e954b8a70839bc7934e4c143b06a838">INTENSITY_REG</a>,level)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Digital control of display brightness. Sets display intensity/brightness. where pDisplay pointer to the structure that represents the display and level is the brightness level. </p>
+
+</div>
+</div>
 <a class="anchor" id="a27f3bfb752f817814dbfc50cf45914b8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +238,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 1 2015 22:33:09 for MAX7221 library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 11 2015 22:56:46 for MAX7221 library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
