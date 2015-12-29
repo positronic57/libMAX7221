@@ -1,0 +1,38 @@
+libMAX7221 Library Installation Manual
+
+
+This short HOWTO describes the installation procedure for libMAX7221 on Linux.
+
+Prerequisites:
+- GNU binutils and GNU gcc compiler built for AVR targets;
+- AVR-libc.
+
+
+Installation
+
+1. Navigate to the library folder.
+2. Build the library with:
+
+        #make
+
+3. Install the library by executing:
+
+        #sudo make install
+
+The destination folder is defined by two variables in the Makefile: $PREFIX and $MCU.
+$MCU defines the target AVR MCU. By default, the library is installed in:
+
+        /usr/lib/avr/lib/$MCU
+
+or
+        /usr/lib/avr/lib/atmega328p
+
+While the default destination for the library header file is:
+
+        /usr/lib/avr/include
+
+
+Uninstalling the library
+
+        #sudo make uninstall
+

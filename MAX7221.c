@@ -96,18 +96,6 @@ void MAX7221_clearDisplay(T7SegDisplay *pDisplay)
 	MAX7221_refreshDisplay(pDisplay);
 }
 
-//Set display in shutdown mode
-void MAX7221_shutdownDisplay(T7SegDisplay *pDisplay)
-{
-	SendData2MAX7221(pDisplay,MODE_REG,SHUTDOWN_MODE);
-}
-
-//Resume to normal mode of operation after entering in shutdown mode
-void MAX7221_wakeUpDisplay(T7SegDisplay *pDisplay)
-{
-	SendData2MAX7221(pDisplay,MODE_REG,NORMAL_OPERATION_MODE);
-}
-
 //Show integer value on the display
 void MAX7221_showIntNumber(T7SegDisplay *pDisplay,int32_t number)
 {

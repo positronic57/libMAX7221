@@ -1,0 +1,33 @@
+The library is distributed with the following examples:
+- libMAX7221example.c;
+- libMAX7221example2.c.
+
+
+They are tested on Atmega328p microcontroller.
+
+Building the examples
+
+The examples can be built using the existing Makefile by executing:
+
+	#make libMAX7221example
+	#make libMAX7221example2
+
+or
+
+	#make all 
+
+libMAX7221 must be installed before building the examples.
+
+The variables $LIBRARY_PATH and $HEADERS_PATH from the Makefile defines the library installation folder and the location
+of the library header file. The default locations are:
+
+- /usr/lib/avr/lib/atmega328p;
+- /usr/lib/avr/include.
+
+Update those variables with the locations of the installed libMAX7221 library.
+
+
+WARNING: 
+The source is provided as it is without any warranty. Use it on your own risk!
+The author does not take any responsibility for the damage caused while using this software.
+
