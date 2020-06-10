@@ -1,17 +1,25 @@
 #Makefile for bor building the examples distributed 
-#with DS18S20Library.
+#with libMAX7221 libarary.
 
 #AVR Microcontroller
-MCU = atmega328p
+ifdef mcu
+	MCU = $(mcu)
+else
+	MCU = atmega32
+endif
 
-#CPU frequency  (must be the same as the value used while building DS18S20Library).
-CPU_FREQ = 16000000L
+#CPU frequency  (must be the same as the value used while building libMAX7221).
+ifdef cpu_freq
+	CPU_FREQ = $(cpu_freq)
+else
+	CPU_FREQ = 16000000L
+endif
 
 #Header files path (Update this with the library installation folder).
-HEADERS_PATH = /usr/lib/avr/include
+HEADERS_PATH = /usr/local/include/avr8
 
 #Library path
-LIBRARY_PATH = /usr/lib/avr/lib/$(MCU)
+LIBRARY_PATH = /usr/local/lib/avr8/$(MCU)
 
 #List of source files
 SOURCES += libMAX7221example.c libMAX7221example2.c
@@ -43,7 +51,7 @@ libMAX7221example.elf: libMAX7221example.o
 	avr-gcc -Wl,-Map,libMAX7221example.map -mmcu=$(MCU) -o $@ $^ -L$(LIBRARY_PATH) -lMAX7221
 	@echo 
 	@echo $@ memory footprint:
-	avr-size --format=avr --mcu=atmega32 $@
+	avr-size --format=avr --mcu=$(MCU) $@
 
 #Generate libMAX7221example2 ELF file from the object files using linker
 libMAX7221example2.elf: libMAX7221example2.o
@@ -51,7 +59,7 @@ libMAX7221example2.elf: libMAX7221example2.o
 	avr-gcc -Wl,-Map,libMAX7221example2.map -mmcu=$(MCU) -o $@ $^ -L$(LIBRARY_PATH) -lMAX7221 
 	@echo 
 	@echo $@ memory footprint:
-	avr-size --format=avr --mcu=atmega32 $@
+	avr-size --format=avr --mcu=$(MCU) $@
 
 #Generate HEX files
 libMAX7221example.hex: libMAX7221example.elf

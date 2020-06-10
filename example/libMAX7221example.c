@@ -15,6 +15,8 @@
  */
 
 #include <avr/io.h>
+#include <util/delay.h>
+
 #include "MAX7221.h"
 
 void SPI_Master_Init();
@@ -22,18 +24,19 @@ void SPI_Master_Init();
 int main(void)
 {
 	T7SegDisplay SevenSegDisplay;
-	T7SegDisplay *p7SegDisplay = &SevenSegDisplay;
 
 	// Init SPI hardware as master.
 	SPI_Master_Init();
 	
 	// Init one raw 7Seg Display driven by MAX7221
-	MAX7221_initDisplay(p7SegDisplay,5,&PORTB,PORTB2);
+	MAX7221_initDisplay(&SevenSegDisplay,5,&PORTB,PORTB2);
 	
 	//Example for showing integer number
-	MAX7221_showIntNumber(p7SegDisplay,-7169);
+	MAX7221_showIntNumber(&SevenSegDisplay, -7169);
 	
-	while(1);
+	while(1){
+        _delay_ms(500);
+    }
 	
 	return 0;
 }

@@ -1,38 +1,40 @@
-libMAX7221 Library Installation Manual
+Installation Manual for libMAX7221 
 
+This short HOWTO describes the installation procedure for libMAX7221 on Linux. 
 
-This short HOWTO describes the installation procedure for libMAX7221 on Linux.
+Prerequisites: 
+- GNU binutils and GNU gcc compiler for AVR MCUs; 
+- AVR-libc. 
 
-Prerequisites:
-- GNU binutils and GNU gcc compiler built for AVR targets;
-- AVR-libc.
+Build and Installation 
 
+1. Navigate to the folder with the library source code. 
 
-Installation
+2. Build the library with: 
 
-1. Navigate to the library folder.
-2. Build the library with:
+  #make [mcu|cpu_freq] 
 
-        #make
+No parameters provided, make builds the source for Atmega328p MCU with CPU frequency of 4MHz. 
+The target MCU and/or CPU frequency can be changed either by editing the Makefile (variables $MCU and $CPU_FREQ) or using the command line arguments: 
 
-3. Install the library by executing:
+- mcu=<mcu name> 
+- cpu_freq=<frequency as long integer value> 
 
-        #sudo make install
+For example: 
 
-The destination folder is defined by two variables in the Makefile: $PREFIX and $MCU.
-$MCU defines the target AVR MCU. By default, the library is installed in:
+  #make mcu=atmega32 cpu_freq=16000000L 
 
-        /usr/lib/avr/lib/$MCU
+will build the library for Atmega32 MCU with frequency of 16MHz. Any missing argument will be replaced with its 
+default value from Makefile.
 
-or
-        /usr/lib/avr/lib/atmega328p
+3. Install the library by executing: 
 
-While the default destination for the library header file is:
+  #sudo make install 
 
-        /usr/lib/avr/include
+A copy of the library archive will be made in /usr/local/lib/avr8 folder while
+the header file will end up in /usr/local/include/avr8 folder.
 
+4. Uninstalling the library 
 
-Uninstalling the library
-
-        #sudo make uninstall
+  #sudo make uninstall 
 

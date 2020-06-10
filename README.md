@@ -4,19 +4,16 @@
 
 LibMAX7221 is a C library for AVR 8-bit microcontrollers for 7-Seg display driven by MAX7221.
 
-#### What's New
-
-Version 1.2
-
-- Added Makefile for easier build and installation of the library and examples;
-- Resolved overlapping definitions of macros and functions.
-
 #### Supported MCU Hardware and 7-Seg Display modules
 
 The library is compatible with every 8-bit AVR microcontroller which has SPI that supports standard SPI master
 mode with 4 wires for SPI physical bus.
 
 It supports only a single raw 7-Seg Display with maximum 8 7Seg LEDs driven by a single MAX7221.
+
+#### Installation
+
+Check the instructions described in INSTALL document.
 
 #### Usage
 

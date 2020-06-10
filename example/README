@@ -16,13 +16,15 @@ or
 
 	#make all 
 
+for compiling the both examples.
+
 libMAX7221 must be installed before building the examples.
 
 The variables $LIBRARY_PATH and $HEADERS_PATH from the Makefile defines the library installation folder and the location
 of the library header file. The default locations are:
 
-- /usr/lib/avr/lib/atmega328p;
-- /usr/lib/avr/include.
+- /usr/local/lib/avr8/atmega328p;
+- /usr/local/include/avr8.
 
 Update those variables with the locations of the installed libMAX7221 library.
 
