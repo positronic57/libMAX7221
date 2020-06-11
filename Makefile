@@ -14,7 +14,7 @@ endif
 ifndef cpu_freq
 	CPU_FREQ = 4000000L
 else
-	CPU_FRQE = $(cpu_freq)
+	CPU_FREQ = $(cpu_freq)
 endif
 
 #Source files
@@ -26,12 +26,7 @@ OBJECTS += $(SOURCES:.c=.o)
 #Library header file
 HEADER += MAX7221.h
 
-#Library installation folder
-ifdef prefix
-	PREFIX = $(prefix)
-else
-	PREFIX = /usr/local
-endif
+PREFIX = /usr/local
 
 #Define C compiler flags
 override CFLAGS = -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=$(MCU) -DF_CPU=$(CPU_FREQ)
