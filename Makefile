@@ -7,7 +7,7 @@ LIBRARY_NAME = libMAX7221
 ifdef mcu
 	MCU = $(mcu) 
 else
-	MCU = atmega32
+	MCU = atmega328p
 endif
 
 #CPU frequency 

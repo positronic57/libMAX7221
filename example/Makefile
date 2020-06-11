@@ -5,14 +5,14 @@
 ifdef mcu
 	MCU = $(mcu)
 else
-	MCU = atmega32
+	MCU = atmega328p
 endif
 
 #CPU frequency  (must be the same as the value used while building libMAX7221).
 ifdef cpu_freq
 	CPU_FREQ = $(cpu_freq)
 else
-	CPU_FREQ = 16000000L
+	CPU_FREQ = 4000000L
 endif
 
 #Header files path (Update this with the library installation folder).
